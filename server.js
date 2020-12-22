@@ -25,6 +25,10 @@ mongoose.connect(process.env.MONGODB_URI || "mongodb://Venus:fifimongo$@cluster0
 
 app.use(require("./routes/api.js"));
 
+app.get("/", function(req,res){
+  res.json(path.join(__dirname,"public/index.html"));
+});
+
 app.listen(PORT, () => {
   console.log(`App running on port ${PORT}!`);
 });
